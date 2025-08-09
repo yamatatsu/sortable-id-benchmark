@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Bench } from 'tinybench';
 import { v1 as uuidv1, v3 as uuidv3, v4 as uuidv4, v5 as uuidv5, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
 
@@ -25,7 +26,11 @@ bench
   })
   .add('UUID v7', () => {
     uuidv7();
-  });
+  })
+  .add('node:crypto', () => {
+    randomUUID();
+  })
+  ;
 
 console.log('Running UUID versions benchmark (v1-v7)...\n');
 
