@@ -26,11 +26,11 @@ pnpm start
 - **Node.js**: v22.18.0
 - **Platform**: macOS (Darwin 24.6.0)
 - **Library Versions**:
-  - tinybench: ^4.0.1
-  - ulid: ^3.0.1
-  - uuid: ^11.1.0
-  - ksuid: ^3.0.0
-  - uuidv7: ^1.0.2
+  - tinybench: 4.0.1
+  - ulid: 3.0.1
+  - uuid: 11.1.0
+  - ksuid: 3.0.0
+  - uuidv7: 1.0.2
 
 ## Sample Results (August 2025)
 
