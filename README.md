@@ -8,6 +8,7 @@ Benchmark comparison of sortable ID generation libraries using [tinybench](https
 - [UUID v6](https://www.npmjs.com/package/uuid) - Time-based UUID with improved sorting
 - [UUID v7](https://www.npmjs.com/package/uuid) - Time-based UUID with Unix timestamp
 - [KSUID](https://www.npmjs.com/package/ksuid) - K-Sortable Globally Unique IDs
+- [uuidv7](https://www.npmjs.com/package/uuidv7) - Dedicated UUIDv7 implementation
 
 ## Usage
 
@@ -29,6 +30,7 @@ pnpm start
   - ulid: ^3.0.1
   - uuid: ^11.1.0
   - ksuid: ^3.0.0
+  - uuidv7: ^1.0.2
 
 ## Sample Results (August 2025)
 
@@ -36,14 +38,25 @@ pnpm start
 
 | Library | Throughput (ops/s) | Latency (ns) |
 |---------|-------------------|--------------|
-| UUID v7 | ~9.4M | 172 |
+| UUID v7 (uuid pkg) | ~9.5M | 166 |
+| uuidv7 (dedicated) | ~4.1M | 336 |
 | UUID v6 | ~4.1M | 298 |
-| KSUID | ~251K | 4,412 |
-| ULID | ~68K | 16,358 |
+| KSUID | ~252K | 4,355 |
+| ULID | ~68K | 16,644 |
 
 ## Key Findings
 
-- **UUID v7** is the fastest option (138x faster than ULID)
+- **UUID v7 (uuid package)** is the fastest option (140x faster than ULID)
+- **uuid package's v7 implementation** is 2.3x faster than dedicated uuidv7 library
+- **uuidv7 dedicated library** performs similarly to UUID v6
 - **KSUID** generates 27-character IDs
 - **ULID** uses Base32 encoding (26 characters)
 - All libraries generate sortable IDs based on timestamps
+
+## Library Characteristics
+
+- **UUID v7 (uuid pkg)**: Highest throughput in this benchmark
+- **uuidv7 (dedicated)**: Dedicated UUIDv7 implementation with moderate performance
+- **UUID v6**: Standard UUID format with time-based sorting
+- **KSUID**: 27-character format with timestamp prefix
+- **ULID**: 26-character Base32 encoded format

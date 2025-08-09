@@ -6,13 +6,21 @@
   "scripts": {
     "start": "node benchmark.js"
   },
-  "keywords": ["benchmark", "id", "uuid", "ulid", "ksuid", "sortable"],
+  "keywords": [
+    "benchmark",
+    "id",
+    "uuid",
+    "ulid",
+    "ksuid",
+    "sortable"
+  ],
   "license": "ISC",
   "packageManager": "pnpm@10.12.4",
   "dependencies": {
     "ksuid": "^3.0.0",
     "tinybench": "^4.0.1",
     "ulid": "^3.0.1",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "uuidv7": "^1.0.2"
   }
 }
